@@ -220,22 +220,53 @@
                 <area shape="rect" coords="420,40,580,160" href="mailto:ermiyas.alemayehu@aastustudent.edu.et" alt="Email">
             </map>
             <h3>Send me a message</h3>
-            <form action="thank-you.html" method="get">
+            <form action="thank-you.html" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Your Details goes here</legend>
 
                     <label for="fullname">Full name</label>
-                    <input type="text" name="fullname" id="fullname">
+                    <input type="text" name="fullname" id="fullname" required>
                     <br><br>
 
                     <label for="email">Email:</label>
-                    <input type="text" name="email" id="email">
+                    <input type="text" name="email" id="email" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Project Details</legend>
+                    
+                    <label for="phone">Phone (optional):</label>
+                    <input type="text" name="phone" id="phone" pattern="0[79][0-9]{8}" title="10 digits starting with 09 or 07">
+                    <br><br>
+
+                    <p>Preferred contact method:</p>
+                    <input type="radio" name="contact-method" id="by-email" value="email" checked>
+                    <label for="by-email">Email</label>
+                    <input type="radio" name="contact-method" id="by-phone" value="phone">
+                    <label for="by-phone">Phone</label>
+                    <br><br>
+
+                    <label for="meeting">Preferred meeting date:</label>
+                    <input type="date" name="meeting" id="meeting" min="2026-11-04">
+                    <br><br>
+
+                    <label for="weeks">Project length (weeks):</label>
+                    <input type="number" name="weeks" id="weeks" max="52" step="1">
+                    <br><br>
+                    <label for="number">Your Budger</label>
+                    <input type="number" name="budget" id="budget" min="1000" step="500">
+
+                    <label for="colour">Preferred website colour:</label>
+                    <input type="color" name="colour" id="colour" value="#1f5fa8">
+                    <br><br>
+
+                    <label for="rating">How much do you like my portfolio? (1-10)</label>
+                    <input type="range" id="rating" name="rating" min="1" max="10" value="7">
                 </fieldset>
                 <fieldset>
                     <legend>Your Message</legend>
 
                     <label for="reason">Reason for contacting me:</label>
-                    <select name="reason" id="reason">
+                    <select name="reason" id="reason" required>
                         <optgroup label="Work">
                             <option value="internship">Internship offer</option>
                             <option value="freelance">Freelance project</option>
@@ -250,7 +281,10 @@
                     <br><br>
 
                     <label for="message">Message:</label><br>
-                    <textarea name="message" id="message" rows="6" cols="40"></textarea>
+                    <textarea name="message" id="message" rows="6" cols="40" required></textarea>
+                    <br>
+                    <input type="checkbox" name="copy" id="copy" value="yes">
+                    <label for="copy">Send me a copy of this message</label>
                 </fieldset>
                 <button type="submit">Send Message</button>
                 <button type="reset">Clear</button>
