@@ -11,6 +11,7 @@
 </head>
 <body>
     <header>
+        <canvas id="logo" width="120" height="120">Ermiyas Alemayehu logo</canvas>
         <h1>Ermiyas Alemayehu</h1>
         <img src="images/profile.jpg" alt="Portrait of Ermiyas Alemayehu smiling"
         title="Ermiyas Alemayehu" width="200" height="200">
@@ -37,6 +38,7 @@
                 <button type="button" 
                 onclick="document.getElementById('hireDialog').close()">Close</button>
             </dialog>
+        
     </header>
     <main>
     <section id="about">
@@ -128,6 +130,39 @@
         <label for="lvl-c++">C++</label>
         <meter value="0.4" id="lvl-c++" min="0" max="1" low="0.3" high="0.7">40%</meter>
         </p>
+
+        <canvas id="skills" width="300" height="150">Skills bar chart</canvas>
+
+    <script>
+        const canva = document.getElementById('skills');
+        const cotx = canva.getContext('2d');
+
+        // 1. HTML bar (70%)
+        cotx.fillStyle = "#1f5fa8";
+        cotx.fillRect(15, 46, 40, 84);
+
+        // 2. Python bar (70%)
+        cotx.fillStyle = "#1f5fa8";
+        cotx.fillRect(85, 46, 40, 84);
+
+        // 3. JavaScript bar (20%)
+        cotx.fillStyle = "#1f5fa8";
+        cotx.fillRect(155, 106, 40, 24);
+
+        // 4. C++ bar (40%)
+        cotx.fillStyle = "#1f5fa8";
+        cotx.fillRect(225, 82, 40, 48);
+
+        // 5. Skill names under each bar
+        cotx.fillStyle = "black";
+        cotx.font = "10px Arial";
+        cotx.textAlign = "center";
+
+        cotx.fillText("HTML", 35, 145);
+        cotx.fillText("Python", 105, 145);
+        cotx.fillText("JavaScript", 175, 145);
+        cotx.fillText("C++", 245, 145);
+    </script>
     </section>
 
     <section id="projects">
@@ -342,5 +377,24 @@
         <p>Last updated: <time datetime="2026-11-02">2 November 2026</time></p>
         <p>&copy; 2026 Ermiyas Alemayehu. All rights reserved.</p>
     </footer>
+
+    <script>
+        const canvas = document.getElementById('logo');
+        const ctx = canvas.getContext('2d');
+        // 1. Blue square background: x, y, width, height
+        ctx.fillStyle = "#1f5fa8";
+        ctx.fillRect(0, 0, 120, 120);
+        // 2. White circle: centre x, centre y, radius, start angle, end angle
+        ctx.beginPath();
+        ctx.arc(60, 60, 45, 0, 2 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        // // 3. Initials in the middle
+        ctx.fillStyle = "#1f5fa8";
+        ctx.font = "bold 36px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("EA", 60, 62);
+    </script>
 </body>
 </html>
